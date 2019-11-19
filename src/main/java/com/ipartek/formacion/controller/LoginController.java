@@ -39,20 +39,60 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String vista;
+		
 		// Recibir parametros del formulario, siempre formato String
-		String userName = request.getParameter("nombre");
-		String pass = request.getParameter("contrasena");
+		String nombre = request.getParameter("nombre");
+		String contrasena = request.getParameter("contrasena");
+		String idioma = request.getParameter("idioma");
+		String recuerdame = request.getParameter("recuerdame");
 
-		if ("admin".equalsIgnoreCase(userName) && "admin".equalsIgnoreCase(pass)) {
+		// Lógica
+		if ("admin".equalsIgnoreCase(nombre) && "admin".equalsIgnoreCase(contrasena)) {
+
+			String mensaje = "";
+			switch (idioma) {
+			case "es":
+				if (recuerdame == null) {
+					mensaje = "Bienvenido";
+					
+				} else {
+					mensaje = "Bienvenido, tu sesión será recordada";
+					
+				}
+				break;
+			case "en":
+				if (recuerdame == null) {
+					mensaje = "Welcome";
+					
+				} else {
+					mensaje = "Welcome, your session its going to be remembered";
+					
+				}
+				break;
+			case "eu":
+				if (recuerdame == null) {
+					mensaje = "Ongi etarri";
+					
+				} else {
+					mensaje = "Ongi etarri, recordatzen bai";
+					
+				}
+				break;
+			}
+
+			request.setAttribute("mensaje", mensaje);
+			request.setAttribute("nombre", nombre);
+			vista = "loginExito.jsp";
 			
-			request.setAttribute("nombre", userName);
-			
-			// Ir a vista
-			request.getRequestDispatcher("loginExito.jsp").forward(request, response);
 
 		} else {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.setAttribute("mensaje", "Credenciales <b>INCORRECTAS</b>. Por favor, prueba de nuevo.");
+			vista = "login.jsp";
 		}
+		
+		// Ir a vista
+		request.getRequestDispatcher(vista).forward(request, response);
 	}
 
 }

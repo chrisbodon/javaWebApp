@@ -187,7 +187,18 @@
         </ul>
     </div>
 
-    <h1>Login</h1>
+    <h1>Login</h1> 
+    
+    <%
+		// Recibir atributos del controlador
+		String mensaje = (String) request.getAttribute("mensaje");
+    
+		if(mensaje != null){
+	%>
+
+    <h2 style="color: red;"><%=mensaje%></h2>
+    
+	<%	} %>
 
     <form action="login" method="POST">
         <img src="https://picsum.photos/id/684/200" alt="">
@@ -203,13 +214,14 @@
 
         <p><label for="idioma">Idioma</label> <br>
             <select name="idioma">
-                <option name="lang" value="es">Español</option>
-                <option name="lang" value="en">English</option>
+                <option value="es" selected>Español</option>
+                <option value="en">English</option>
+                <option value="eu">Euskera</option>
             </select>
         </p>
 
         <p>
-            <input type="checkbox" name="recuerdame" value="2" checked> Recuerdame
+            <input type="checkbox" name="recuerdame" value="1" checked> Recuerdame
         </p>
 
 
@@ -222,6 +234,9 @@
         </div>
     </form>
 
+	<p>Se pueden pasas parámetros por URL. El primer parámetro se pasa con interrogante, todos los demás con &. Los parámetros se componen de key=value.</p>
+	<p><code>....login?nombre=pepe&otroParametro=otroValor</code></p>
+	
     <script src="js/main.js"></script>
     <script>
 

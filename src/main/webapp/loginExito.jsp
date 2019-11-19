@@ -189,11 +189,12 @@
     
     <%
 		// Recibir atributos del controlador
-		String userName = (String) request.getAttribute("nombre");
+		String nombre = (String) request.getAttribute("nombre");
+		String mensaje = (String) request.getAttribute("mensaje");
 
 	%>
 
-    <h2>Bienvenido <%=userName%>, login realizado con éxito.</h2>
+    <h2><%=mensaje%> <%=nombre%></h2>
 
     <script src="js/main.js"></script>
 </body>
