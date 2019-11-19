@@ -184,7 +184,6 @@
         <ul>
             <li><a href="index.jsp">Calculadora</a></li>
             <li><a href="login.jsp">Login</a></li>
-            
         </ul>
     </div>
 
