@@ -67,7 +67,7 @@
             transition: background-color 0.5s ease;
         }
     </style>
- <h1>Ipartek HTML5</h1>
+ <h1>Ipartek HTML5 <span class="fas fa-american-sign-language-interpreting"></span></h1>
 
     <a target="_blank" href="">Documentación de tablas.</a>
     <h2>Tabla</h2>
@@ -118,4 +118,9 @@
     <h2 id="volunteer">Voluntari@</h2>
     <audio id="audio" src="media/final-fantasy-vii-victory-fanfare-1.mp3"></audio>
 
+	<h2>Apuntes</h2>
+	
+	<h3>URL´s</h3>
+	<p>Si una URL empieza por barra, es relativa al servidor, obviando la base y la carpeta en la que se encuentra.</p>
+	
 <%@include file="includes/pie.jsp"%>

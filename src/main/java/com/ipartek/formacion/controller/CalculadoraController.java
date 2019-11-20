@@ -40,23 +40,49 @@ public class CalculadoraController extends HttpServlet {
 			throws ServletException, IOException {
 
 		// Recibir parametros del formulario, siempre formato String
-		String num = request.getParameter("op");
+		String op = request.getParameter("op");
 		String num1 = request.getParameter("op1");
 		String num2 = request.getParameter("op2");
 
 		try {
 			// Realizar calculos
-			int resultado = 0;
+			float n1 = Float.parseFloat(num1);
+			float n2 = Float.parseFloat(num2);
+			float resultado = 0;
+
+			switch (op) {
+			case "1":
+				resultado = n1 + n2;
+				request.setAttribute("simbolo", "+");
+				break;
+			case "2":
+				resultado = n1 - n2;
+				request.setAttribute("simbolo", "-");
+				break;
+			case "3":
+				resultado = n1 * n2;
+				request.setAttribute("simbolo", "*");
+				break;
+			case "4":
+				request.setAttribute("simbolo", "/");
+				if (n2 == 0) {
+					request.setAttribute("mensaje", "Division entre cero es Infinito");
+				} else {
+					resultado = n1 / n2;
+				}
+				break;
+			default:
+				break;
+			}
 
 			// Enviar datos a la vista
-			request.setAttribute("op", num);
 			request.setAttribute("op1", num1);
 			request.setAttribute("op2", num2);
 			request.setAttribute("resultado", resultado);
 
 		} catch (Exception e) {
 			request.setAttribute("resultado", 0);
-			request.setAttribute("mensaje", "Lo sentimos, pero solo sabemos operar con números");
+			request.setAttribute("mensaje", "Lo sentimos pero solo sabemos sumar numeros");
 
 		} finally {
 

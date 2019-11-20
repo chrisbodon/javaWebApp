@@ -1,0 +1,27 @@
+/* Game CSS */
+
+
+
+body {
+    font-family: monospace;
+    background-color: #78FB8A;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #F7F775;
+    text-shadow: 2px 2px 7px #0F2F89;
+}
+
+canvas {
+    border: 1px solid gray;
+    display: block;
+    margin: auto;
+    background-color: #F50FA3;
+}
