@@ -1,6 +1,8 @@
 <div id="menu" class="navbar">
-	<ul>
+	<a href="javascript:void(0);" onclick="collapse()"><span class="fa fa-power-off"></span></a>
+	<ul class="navbar-elements">
 		<li><a href="index.jsp">Principal</a></li>
+		<li><a href="ejemplos/js/datatable.jsp">Animación</a></li>
 		<li><a href="ejemplos/css/animaciones.jsp">Animación</a></li>
 		<li><a href="ejemplos/css/basics.jsp">Básicos</a></li>
 		<li><a href="ejemplos/css/selectores-basicos.jsp">Selectores Básicos</a></li>

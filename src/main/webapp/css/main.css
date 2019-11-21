@@ -1,4 +1,4 @@
-@import url("reset.css");
+/*@import url("reset.css");*/
 
 @import url("normalize.css");
 
@@ -28,10 +28,10 @@ body {
 	width: 40px;
 	height: 32px;
 	position: fixed;
-	bottom: 3px; right : 6px;
+	bottom: 5px;
+	right : 8px;
 	opacity: 0.6;
 	z-index: 3;
-	right: 6px;
 }
 
 .intro {
@@ -73,14 +73,24 @@ body {
 }
 
 .navbar a {
+	display: inline-block;
 	color: #957ca9;
 	padding: 10px;
 	border-radius: 50px;
+	font-size: 15px;
 }
 
 .navbar a:hover {
 	color: #f1f1e6;
 	animation: backgroundColor 1s infinite alternate;
+}
+
+.navbar-elements {
+	display: none;
+}
+
+.navbar-elements.collapsed {
+	display: block;
 }
 
 main {
@@ -98,6 +108,7 @@ main {
 
 #footer ul {
 	padding: 0px;
+	margin: 0px;
 }
 
 #footer li {

@@ -1,3 +1,13 @@
+// Collapse menu
+function collapse() {
+  var menuCollapse = document.getElementsByClass("navbar-elements");
+  if (menuCollapse.className === "navbar-elements") {
+	  menuCollapse.className += " collapsed";
+  } else {
+	  menuCollapse.className = "navbar-elements";
+  }
+}
+
 // Comentario de línea.
 
 /** Comentario de bloque para doumentar */
