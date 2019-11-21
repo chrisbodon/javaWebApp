@@ -1,0 +1,17 @@
+@keyframes move {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+@keyframes backgroundColor {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: #957ca9;
+  }
+}

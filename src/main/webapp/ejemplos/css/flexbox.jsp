@@ -34,13 +34,7 @@
 </section>
 
 <section>
-	<p>
-		Flex, es una nueva forma de
-		<code>display</code>
-		. Sirve para distribuir los elementos contenidos en una etiqueta, que
-		contenga este display.
-	</p>
-	
+	<p>Flex, es una nueva forma de <code>display</code>. Sirve para distribuir los elementos contenidos en una etiqueta, que contenga este display.</p>
 	<img src="img/flex-axes.png">
 </section>
 
