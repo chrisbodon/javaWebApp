@@ -1,3 +1,4 @@
+<%String title = "Arkanoid"; %>
 <%@include file="../../../includes/cabecera.jsp"%>
 <%@include file="../../../includes/navegacion.jsp"%>
 

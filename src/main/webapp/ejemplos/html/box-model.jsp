@@ -1,3 +1,4 @@
+<%String title = "Box model"; %>
 <%@include file="../../../includes/cabecera.jsp"%>
 <%@include file="../../../includes/navegacion.jsp"%>
 

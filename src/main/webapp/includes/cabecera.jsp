@@ -8,7 +8,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,
                 maximum-scale=1.0, user-scalable=no" />
-<meta content="Prueba Técnica" name="keywords" />
+<meta content="Ipartek Java Web Project" name="keywords" />
 <link rel="shortcut icon" type="image/png" href="img/Favicon.jpg" />
 
 <!-- La base para construir todas las etiquetas de la página. -->
@@ -72,12 +72,12 @@
 <link href="css/main.css?time=<%=System.currentTimeMillis()%>"
 	rel="stylesheet">
 
-<title>Ipartek</title>
+<title>Ipartek | <%=title%></title>
 
 </head>
 
 <body id="top">
-	<a href="#top" id="toTop"> <img src="img/totop.png" /></a>
+	<a href="#top" id="toTop"> <span class="fas fa-arrow-circle-up"></span></a>
 
 	<div class="intro">
 		<img src="img/logo-ipartek.png" class="logo" />

@@ -1,3 +1,7 @@
+
+<%
+	String title = "Inicio";
+%>
 <%@include file="includes/cabecera.jsp"%>
 <%@include file="includes/navegacion.jsp"%>
 <style>
@@ -33,12 +37,13 @@
 	outline: none;
 }
 </style>
-<h1>
-	Ipartek HTML5 <span class="fas fa-american-sign-language-interpreting"></span>
-</h1>
+<h1>Ipartek HTML5</h1>
 
-<a target="_blank" href="">Documentación de tablas.</a>
+<h2>CSS Stylesheet</h2>
+<img src="img/css-chuleta.png">
+
 <h2>Tabla</h2>
+<a target="_blank" href="">Documentación de tablas.</a>
 
 <table class="styledTable display">
 	<thead>
@@ -100,7 +105,6 @@
 <h2>Apuntes</h2>
 
 <h3>URL´s</h3>
-<p>Si una URL empieza por barra, es relativa al servidor, obviando
-	la base y la carpeta en la que se encuentra.</p>
+<p>Si una URL empieza por barra, es relativa al servidor, obviando la base y la carpeta en la que se encuentra.</p>
 
 <%@include file="includes/pie.jsp"%>

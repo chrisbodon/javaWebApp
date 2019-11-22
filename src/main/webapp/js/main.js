@@ -1,6 +1,6 @@
 // Collapse menu
 function collapse() {
-  var menuCollapse = document.getElementsByClass("navbar-elements");
+  var menuCollapse = document.getElementById("navbar-menu");
   if (menuCollapse.className === "navbar-elements") {
 	  menuCollapse.className += " collapsed";
   } else {

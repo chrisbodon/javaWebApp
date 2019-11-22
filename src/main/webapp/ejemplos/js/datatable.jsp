@@ -1,5 +1,6 @@
+<%String title = "Datatables"; %>
 <%@include file="../../../includes/cabecera.jsp"%>
-<!--<%@include file="../../../includes/navegacion.jsp"%>-->
+<%@include file="../../../includes/navegacion.jsp"%>
 
 <h1>Datatables</h1>
 

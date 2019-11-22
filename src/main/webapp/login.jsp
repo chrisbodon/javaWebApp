@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Prueba Técnica">
-    <meta name="author" content="Cristian Bodón">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-                maximum-scale=1.0, user-scalable=no" />
-    <meta content="Prueba Técnica" name="keywords" />
-    <link rel="shortcut icon" type="image/png" href="img/Favicon.jpg" />
-
-    <!-- La base para construir todas las etiquetas de la página. -->
-    <!-- <base href="/pruebaTecnica/"> -->
-
-    <!-- CSS -->
-    <link href="css/main.css" rel="stylesheet">
-
-    <title>Ipartek</title>
+<%String title = "Login"; %>
+<%@include file="includes/cabecera.jsp"%>
+<%@include file="includes/navegacion.jsp"%>
 
     <style>
         form {
@@ -173,19 +157,6 @@
             }
         }
     </style>
-</head>
-
-<body>
-    <div class="intro">
-        <img src="img/logo-ipartek.png" class="logo" />
-    </div>
-
-    <div id="menu" class="navbar">
-        <ul>
-            <li><a href="index.jsp">Calculadora</a></li>
-            <li><a href="login.jsp">Login</a></li>
-        </ul>
-    </div>
 
     <h1>Login</h1> 
     
@@ -237,7 +208,6 @@
 	<p>Se pueden pasas parámetros por URL. El primer parámetro se pasa con interrogante, todos los demás con &. Los parámetros se componen de key=value.</p>
 	<p><code>....login?nombre=pepe&otroParametro=otroValor</code></p>
 	
-    <script src="js/main.js"></script>
     <script>
 
         function viewText() {
@@ -262,6 +232,4 @@
 
 
     </script>
-</body>
-
-</html>
+<%@include file="includes/pie.jsp"%>

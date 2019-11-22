@@ -1,5 +1,6 @@
+<%String title = "Ejemplo de menú responsive"; %>
 <%@include file="../../../../includes/cabecera.jsp"%>
-<!--<%@include file="../../../../includes/navegacion.jsp"%>-->
+<%@include file="../../../../includes/navegacion.jsp"%>
 <style>
 .topnav {
   overflow: hidden;
