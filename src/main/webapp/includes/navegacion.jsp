@@ -15,6 +15,7 @@
 		<li><a href="ejemplos/css/flexbox.jsp">Flexbox</a></li>
 		<li><a href="calculadora.jsp">Calculadora</a></li>
 		<li><a href="login.jsp">Login</a></li>
+		<li><a href="conversor.jsp">Conversor</a></li>
 	</ul>
 </div>
 
