@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.ipartek.formacion.modelo.pojos.Perro;
 
 /**
@@ -20,6 +22,7 @@ public class PerrosController extends HttpServlet {
 	
 	
 	private static final long serialVersionUID = 1L;
+	private final static Logger LOG = Logger.getLogger(PerrosController.class);
 	
     private ArrayList<Perro> perros = new ArrayList<Perro>();
     
@@ -27,7 +30,7 @@ public class PerrosController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		
-		// Se ejecuta la primera vez que se llama a este servlet, y nunca más.
+		LOG.trace("Se ejecuta la primera vez que se llama a este servlet, y nunca más."); 
 		super.init(config);
 		perros.add( new Perro("bubba") );
 		perros.add( new Perro("rataplan") );
@@ -40,7 +43,7 @@ public class PerrosController extends HttpServlet {
 	@Override
 	public void destroy() {
 		
-		// Se ejecuta solo una vez, cuando se para el servidor de aplicaciones.
+		LOG.trace("Se ejecuta solo una vez, cuando se para el servidor de aplicaciones.");
 		super.destroy();
 		perros = null;
 		
@@ -49,11 +52,11 @@ public class PerrosController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// Se ejecuta antes del doGet o el doPost.
+		LOG.trace("Se ejecuta antes del doGet o el doPost.");
 		
-		super.service(request, response); // Ejecuta el doGet y el doPost.
+		super.service(request, response); LOG.trace("Ejecuta el doGet y el doPost."); 
 		
-		// Se ejecuta después del doGet o el doPost.
+		LOG.trace("Se ejecuta después del doGet o el doPost.");
 		
 		//listar perros
 		request.setAttribute("perros", perros);
@@ -66,10 +69,7 @@ public class PerrosController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//listar perros
-		
-		request.setAttribute("perros", perros);
-		request.getRequestDispatcher("perros.jsp").forward(request, response);
+	
 	}
 
 	/**
