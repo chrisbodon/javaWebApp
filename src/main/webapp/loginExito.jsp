@@ -159,16 +159,6 @@
 </head>
 
 <body>
-    <div class="intro">
-        <img src="img/logo-ipartek.png" class="logo" />
-    </div>
-
-    <div id="menu" class="navbar">
-        <ul>
-            <li><a href="index.jsp">Calculadora</a></li>
-            <li><a href="login.jsp">Login</a></li>
-        </ul>
-    </div>
     
     <%
 		// Recibir atributos del controlador

@@ -1,11 +1,16 @@
 package com.ipartek.formacion.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.ipartek.formacion.modelo.pojos.Usuario;
 
 /**
  * Servlet implementation class LoginController
@@ -13,13 +18,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static final String USUARIO = "pepe";
+	private static final String PASSWORD = "12345";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public LoginController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -48,8 +55,14 @@ public class LoginController extends HttpServlet {
 		String recuerdame = request.getParameter("recuerdame");
 
 		// Lógica
-		if ("admin".equalsIgnoreCase(nombre) && "admin".equalsIgnoreCase(contrasena)) {
-
+		if (USUARIO.equalsIgnoreCase(nombre) && PASSWORD.equalsIgnoreCase(contrasena)) {
+			
+			// Recuperar session del usuario == browser
+			HttpSession session = request.getSession();
+			session.setAttribute("usuarioLogeado", "administrador");
+			session.setAttribute("idioma", idioma);
+			session.setMaxInactiveInterval(-1); // Nunca caduca
+			
 			String mensaje = "";
 			switch (idioma) {
 			case "es":
