@@ -22,6 +22,7 @@
 		<li><a href="conversor.jsp">Conversor</a></li>
 		<li><a href="ejemplos/jsp/ejemploRequest.jsp">Ejemplos de Request</a></li>
 		<li><a href="perros">Añadir Perros</a></li>
+		<li><a href="perros2">Añadir Perros JSTL</a></li>
 	</ul>
 </div>
 

@@ -67,11 +67,7 @@
 													"copy" : "Copiar",
 													"colvis" : "Visibilidad"
 												}
-											},
-											columnDefs : [ {
-												targets : [ -1, -3 ],
-												className : 'dt-body-right'
-											} ]
+											}
 										});
 					});
 </script>
