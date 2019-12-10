@@ -1,4 +1,6 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@page import="com.ipartek.formacion.modelo.pojos.Usuario"%>
 <%@page import="java.util.ArrayList"%>
@@ -31,8 +33,6 @@
 	
 	ArrayList<Usuario> usuarios = (ArrayList<Usuario>)request.getAttribute("usuarios");
 
-%>
-<%
 	String usuario = (String) session.getAttribute("usuarioLogeado");
 	String idioma = (String) session.getAttribute("idioma");
 	
@@ -45,11 +45,15 @@
 	} else {
 %>
 
-	<p><%=usuario%>, Idioma: <%=idioma%>, <a href="logout">cerrar sesión</a></p>
+	<p><%=usuario%><%
+	if (idioma != null) {
+	%>, Idioma: <%=idioma%><%}%>, <a href="logout">cerrar sesión</a></p>
 
 <%
 	}
 %>
+
+	<p>Usuarios conectados ${applicationScope.numeroUsuariosConectados}</p>
 </div>
 
 <main>

@@ -171,7 +171,7 @@
     
 	<%	} %>
 
-    <form action="login" method="POST">
+    <form action="private" method="POST">
         <img src="https://picsum.photos/id/684/200" alt="">
 
         <p><label for="nombre">Usuario</label> <br>
