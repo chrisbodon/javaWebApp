@@ -23,12 +23,6 @@ public class LoginController extends HttpServlet {
 	private static final String USUARIO = "admin";
 	private static final String PASSWORD = "admin";
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public LoginController() {
-		super();
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse

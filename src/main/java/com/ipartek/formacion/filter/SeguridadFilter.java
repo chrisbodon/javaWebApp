@@ -1,7 +1,11 @@
 package com.ipartek.formacion.filter;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -25,6 +29,8 @@ import com.ipartek.formacion.controller.PerrosController;
 public class SeguridadFilter implements Filter {
 	
 	private final static Logger LOG = Logger.getLogger(PerrosController.class);
+	
+	private Set<String> ips = new HashSet<String>();
 
     /**
      * Default constructor. 
@@ -62,6 +68,8 @@ public class SeguridadFilter implements Filter {
 		if ( session.getAttribute("usuarioLogeado") == null) {
 			
 			LOG.warn("Intentan entrar sin logearse");
+			//ips.addAll(req.getRequestURL());
+			
 			
 		}
 
