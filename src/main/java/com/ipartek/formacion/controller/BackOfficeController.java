@@ -11,20 +11,17 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class BackOfficeController
  */
-@WebServlet("/private")
+@WebServlet("/private/home")
 public class BackOfficeController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	
-	private static final String USUARIO = "admin";
-	private static final String PASSWORD = "admin";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -32,36 +29,9 @@ public class BackOfficeController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String vista;
+		request.setAttribute("atributoDesdeServlet", "Manolo");
 		
-		// Recibir parametros del formulario, siempre formato String
-		String nombre = request.getParameter("nombre");
-		String contrasena = request.getParameter("contrasena");
-
-		// Lógica
-		if (USUARIO.equalsIgnoreCase(nombre) && PASSWORD.equalsIgnoreCase(contrasena)) {
-			
-			// Recuperar session del usuario == browser
-			HttpSession session = request.getSession();
-			session.setAttribute("usuarioLogeado", nombre);
-			session.setMaxInactiveInterval(-1); // Nunca caduca
-			
-			
-			
-			String mensaje = "";
-
-			request.setAttribute("mensaje", mensaje);
-			request.setAttribute("nombre", nombre);
-			vista = "loginExito.jsp";
-			
-
-		} else {
-			request.setAttribute("mensaje", "Credenciales <b>INCORRECTAS</b>. Por favor, prueba de nuevo.");
-			vista = "login.jsp";
-		}
-		
-		// Ir a vista
-		request.getRequestDispatcher(vista).forward(request, response);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }

@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -76,7 +79,7 @@
 <link href="css/font-awesome/all.css" rel="stylesheet">
 <link href="css/main.css?time=<%=System.currentTimeMillis()%>"
 	rel="stylesheet">
-	<base href="helloweb/">
+	<base href="${pageContext.request.contextPath}/">
 
 <title>Ipartek | <%=title%></title>
 

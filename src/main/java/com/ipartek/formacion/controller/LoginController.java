@@ -99,16 +99,22 @@ public class LoginController extends HttpServlet {
 
 			request.setAttribute("mensaje", mensaje);
 			request.setAttribute("nombre", nombre);
-			vista = "loginExito.jsp";
+			
+			//vista = "loginExito.jsp";
+			//vista = "private/home";
+			String base = request.getContextPath();
+			response.sendRedirect(base + "/private/home");
 			
 
 		} else {
 			request.setAttribute("mensaje", "Credenciales <b>INCORRECTAS</b>. Por favor, prueba de nuevo.");
+			
 			vista = "login.jsp";
+			
+			// Ir a vista
+			request.getRequestDispatcher(vista).forward(request, response);
 		}
 		
-		// Ir a vista
-		request.getRequestDispatcher(vista).forward(request, response);
 	}
 
 }

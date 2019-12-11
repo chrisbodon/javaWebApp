@@ -164,6 +164,10 @@
 		// Recibir atributos del controlador
 		String mensaje = (String) request.getAttribute("mensaje");
     
+    	if(mensaje == null){
+    		mensaje = request.getParameter(mensaje);
+    	}
+    
 		if(mensaje != null){
 	%>
 
@@ -171,7 +175,7 @@
     
 	<%	} %>
 
-    <form action="private" method="POST">
+    <form action="login" method="POST">
         <img src="https://picsum.photos/id/684/200" alt="">
 
         <p><label for="nombre">Usuario</label> <br>
