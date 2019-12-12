@@ -7,9 +7,21 @@
 <%@include file="../../includes/cabecera.jsp"%>
 <%@include file="../../includes/navegacion.jsp"%>
 
-<h1>Backoffice</h1>
-<p>Solo usuarios logeados</p>
+<!-- <meta http-equiv="refresh" content="5"> -->
 
-${atributoDesdeServlet}
+<p>BackOffice</p>
+<p style="color:red">Solo pueden acceder usuarios logeados</p>
+<p>Atributo desde servlet => ${atributoDesdeServlet}</p>
+
+
+<p>Usuarios logeados: <b>${applicationScope.numeroUsuariosConectados}</b> </p>
+<p>Numero de intentos de acceso indebidos: <b>${applicationScope.numeroUsuariosIndebidos}</b> </p>
+
+<ol>
+	<h3>IPs sin repetir de accesos indebidos:</h3>
+	<c:forEach items="${applicationScope.ips}" var="ip">
+		<li>${ip}</li>
+	</c:forEach>
+</ol>
 
 <%@include file="../../includes/pie.jsp"%>

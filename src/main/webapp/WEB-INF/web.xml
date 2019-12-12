@@ -6,7 +6,7 @@
 
 	<!-- También podemos poner la URL de un controlador. -->
 	<welcome-file-list>
-		<welcome-file>/login.jsp</welcome-file>
+		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- Páginas de errores para los controladores en los JSPs. Hay que indicar 

@@ -1,15 +1,14 @@
 package com.ipartek.formacion.filter;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -25,19 +24,17 @@ import com.ipartek.formacion.controller.PerrosController;
 /**
  * Servlet Filter implementation class SeguridadFilter
  */
-@WebFilter("/SeguridadFilter")
+@WebFilter(dispatcherTypes = {
+				DispatcherType.REQUEST, 
+				DispatcherType.FORWARD, 
+				DispatcherType.INCLUDE, 
+				DispatcherType.ERROR
+		}
+					, urlPatterns = { "/private/*" })
 public class SeguridadFilter implements Filter {
 	
 	private final static Logger LOG = Logger.getLogger(PerrosController.class);
 	
-	private Set<String> ips = new HashSet<String>();
-
-    /**
-     * Default constructor. 
-     */
-    public SeguridadFilter() {
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see Filter#destroy()
@@ -54,34 +51,50 @@ public class SeguridadFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse res = (HttpServletResponse)response;
 
-		LOG.debug("RequestURL " + req.getRequestURL());
-		LOG.debug("RequestURI " + req.getRequestURI());
-		LOG.debug("HTTP Protocol " + req.getProtocol());
-		LOG.debug("HTTP RemoteAddr " + req.getRemoteAddr());
-		LOG.debug("HTTP RemoteHost " + req.getRemoteHost());
-		LOG.debug("Navegador " + req.getHeader("User-Agent"));
-		
-		Map parametrosMap = req.getParameterMap();
-		
 		HttpSession session = req.getSession();
 		
-		if ( session.getAttribute("usuarioLogeado") == null) {
-			
+		if ( session.getAttribute("usuarioLogeado") == null ) {
+		
 			LOG.warn("Intentan entrar sin logearse");
-			//ips.addAll(req.getRequestURL());
+			LOG.debug("RequestURL " + req.getRequestURL() );
+			LOG.debug("RequestURI " + req.getRequestURI() );
+			LOG.debug("HTTP Protocol " + req.getProtocol() );
+			LOG.debug("HTTP RemoteAddr " + req.getRemoteAddr() );
+			LOG.debug("HTTP RemoteHost " + req.getRemoteHost() );
+			LOG.debug("navegador " + req.getHeader("User-Agent") );
+									
+			// AplicationContext en la JSP	
+			ServletContext sc = req.getServletContext(); 
+			
+			//actulizar contador
+			int numeroUsuariosIndebidos = (int)sc.getAttribute("numeroUsuariosIndebidos");
+			sc.setAttribute("numeroUsuariosIndebidos", ++numeroUsuariosIndebidos);
+						
+			//guardar ip
+			HashSet<String> ips = (HashSet<String>)sc.getAttribute("ips");
+			String ipCliente = req.getRemoteHost();
+			ips.add(ipCliente);
+			sc.setAttribute("ips", ips);
 			
 			
+									
+		} else {
+			// dejamos continuar
+			// pass the request along the filter chain
+			LOG.trace("logeado con exito");
+			chain.doFilter(request, response);
 		}
-
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
+		
 		LOG.trace("Init");
+		ServletContext sc = fConfig.getServletContext(); 
+		sc.setAttribute("numeroUsuariosIndebidos", 0);    	
+		sc.setAttribute("ips", new HashSet<String>());
 	}
 
 }
