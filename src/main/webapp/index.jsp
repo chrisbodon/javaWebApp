@@ -39,6 +39,8 @@
 </style>
 <h1>Ipartek HTML5</h1>
 
+<h2>Branch modelo</h2>
+
 <h2>CSS Stylesheet</h2>
 <img src="img/css-chuleta.png">
 
