@@ -102,8 +102,13 @@ public class PerrosController extends HttpServlet {
 			}
 
 			if (editar) {
-				dao.update(id, perro);
+				try {
+					dao.update(id, perro);
+				} catch (Exception e) {
+					mensaje = "No se puede Modificar el perro";
+				}
 				request.setAttribute("perroEditar", perro);
+				
 			}
 
 		} else {
