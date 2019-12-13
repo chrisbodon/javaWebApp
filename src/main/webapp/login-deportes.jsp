@@ -296,9 +296,9 @@ border-color
 	
 	<p>
 		<select name="sexo">
-			<option value="h">Hombre</option>
-			<option value="m">Mujer</option>
-			<option value="i">Indefinido</option>
+			<option value="h" ${( sexo == 'h')?"selected":""}>Hombre</option>
+			<option value="m" ${( sexo == 'm')?"selected":""}>Mujer</option>
+			<option value="i" ${( sexo == 'i') || ( empty sexo )?"selected":""}>Indefinido</option>
 		</select>
 	</p>
 

@@ -81,7 +81,7 @@
 	rel="stylesheet">
 	<base href="${pageContext.request.contextPath}/">
 
-<title>Ipartek | <%=title%></title>
+<title>Ipartek | ${title}</title>
 
 </head>
 
