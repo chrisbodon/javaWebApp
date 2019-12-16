@@ -39,8 +39,6 @@
 </style>
 <h1>Ipartek HTML5</h1>
 
-<h2>Branch modelo</h2>
-
 <h2>CSS Stylesheet</h2>
 <img src="img/css-chuleta.png">
 
@@ -99,8 +97,7 @@
 	</tfoot>
 </table>
 
-<a href="javascript:void(0)" class="btn-hover"
-	onclick="selectVolunteer()">¿Quién lee?</a>
+<a href="javascript:void(0)" class="btn-hover" onclick="selectVolunteer()">¿Quién lee?</a>
 <h2 id="volunteer">Voluntari@</h2>
 <audio id="audio" src="media/final-fantasy-vii-victory-fanfare-1.mp3"></audio>
 
